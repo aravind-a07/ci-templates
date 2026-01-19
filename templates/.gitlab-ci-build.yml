@@ -1,0 +1,7 @@
+.build_job_template:
+  stage: build
+  image: node:18-alpine
+  script:
+    - echo "Building from GitHub template!"
+    - npm ci || echo "No package.json"
+    - npm run build || echo "No build script"
