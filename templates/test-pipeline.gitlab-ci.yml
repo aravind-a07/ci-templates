@@ -20,9 +20,9 @@ stages:
   - analyze
 
 # Default configuration for all jobs
+# Note: Removed tags requirement to use any available runner
+# If you have specific runner tags, add them here: tags: ['your-tag']
 default:
-  tags:
-    - amd64
 
 # ============================================
 # BUILD STAGE
@@ -121,3 +121,5 @@ analyze_reports:
     - if: $CI_COMMIT_BRANCH
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
   allow_failure: false
+
+
