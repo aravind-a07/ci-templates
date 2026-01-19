@@ -18,7 +18,6 @@ stages:
   - security
   - code_quality
   - analyze
-  - deploy
 
 # Default configuration for all jobs
 default:
@@ -122,19 +121,3 @@ analyze_reports:
     - if: $CI_COMMIT_BRANCH
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
   allow_failure: false
-
-# ============================================
-# DEPLOY STAGE (Example)
-# ============================================
-
-deploy:
-  stage: deploy
-  image: alpine:latest
-  script:
-    - echo "Deployment would happen here"
-    - echo "Deploying to environment: $CI_ENVIRONMENT_NAME"
-  environment:
-    name: production
-  rules:
-    - if: $CI_COMMIT_TAG
-      when: manual
