@@ -11,8 +11,10 @@ include:
   - template: Security/Secret-Detection.gitlab-ci.yml
 
 # Define pipeline stages
+# Note: 'test' stage is required by GitLab's Code-Quality template
 stages:
   - build
+  - test
   - security
   - code_quality
   - analyze
@@ -87,9 +89,9 @@ secret_detection:
 # ============================================
 
 # Code Quality (using GitLab template)
-# Override to set correct stage (template defaults to 'test' stage)
+# GitLab's template uses 'test' stage by default, so we keep it
+# You can override the stage if needed, but 'test' works fine
 code_quality:
-  stage: code_quality
   rules:
     - if: $CODE_QUALITY_DISABLED
       when: never
