@@ -20,14 +20,14 @@ stages:
   - analyze
 
 # Default configuration for all jobs
-# Note: Removed tags requirement to use any available runner
-# If you have specific runner tags, add them here: tags: ['your-tag']
 default:
+  tags:
+    - saas-linux-small-arm64
 
 # ============================================
 # BUILD STAGE
 # ============================================
-
+s
 build:
   stage: build
   image: node:18-alpine
