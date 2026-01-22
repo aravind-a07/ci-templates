@@ -1,0 +1,31 @@
+# .gitlab/ci-templates/variables.yml
+
+variables:
+  DEPLOYMENT_NAME:
+    value: ""
+    description: "🏢 Deployment project name (e.g., client-acme-prod). Required for manual runs."
+  
+  LIFECYCLE_STAGE:
+    value: "development"
+    options:
+      - "production"
+      - "staging"
+      - "development"
+    description: "🌍 Target environment. Required for manual runs."
+  
+  PORTAL_VERSION:
+    value: ""
+    description: "🏷️ Portal/service version tag (e.g., v2.5.0). Required for manual runs. This will be used as the Docker image TAG."
+  
+  UPGRADE_TYPE:
+    value: "new-version"
+    options:
+      - "new-company"
+      - "new-plant"
+      - "new-modules"
+      - "new-version"
+    description: "🔄 Type of upgrade (optional, defaults to 'new-version')"
+  
+  ROOT_FOLDER:
+    value: "."
+    description: "📁 Root folder for docker build context"
